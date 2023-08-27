@@ -1,41 +1,122 @@
+
 # Logistics Management System
 
 Welcome to the Logistics Management System documentation. This system automates logistics operations for a company that manages vehicles, items, orders, and customers. Below you'll find details about the available routes and endpoints for each feature.
 
 ## Getting Started
+To use the system's functionalities, make sure you have Node.js and MongoDB installed. Install the required dependencies by running
 
-To use the system's functionalities, make sure you have Node.js and MongoDB installed. Install the required dependencies by running:
-
-```bash
+### Install All the dependencies
+```http
 npm install
-Routes and Endpoints
-Authentication
+```
+
+
+## Authentication
 All routes except for the /customers route require authentication via a token. The token should be passed in the Authorization header as a Bearer token.
 
-Authorization: Bearer your-token-here
-Customers
-GET /customers: Get a list of all customers.
-GET /customers/:id: Get details of a specific customer by ID.
-POST /customers: Create a new customer.
-PUT /customers/:id: Update details of a customer.
-DELETE /customers/:id: Delete a customer.
-Items
-GET /items: Get a list of all items.
-GET /items/:id: Get details of a specific item by ID.
-POST /items: Create a new item.
-PUT /items/:id: Update details of an item.
-DELETE /items/:id: Delete an item.
-Delivery Vehicles
-GET /vehicles: Get a list of all delivery vehicles.
-GET /vehicles/:id: Get details of a specific delivery vehicle by ID.
-POST /vehicles: Create a new delivery vehicle.
-PUT /vehicles/:id: Update details of a delivery vehicle.
-DELETE /vehicles/:id: Delete a delivery vehicle.
-Orders
-POST /orders: Create a new order and assign a delivery vehicle.
-PUT /orders/:id/deliver: Mark an order as delivered.
-Error Handling
+```http
+Authorization: Bearer TOKEN (located in utils/constant.js file)
+```
+
+## API Endpoints
+
+## Customers
+
+#### Get a list of all customers
+
+```http
+  GET /customers
+```
+#### Get details of a specific customer by ID.
+
+```http
+  GET /customers/:${id}
+```
+#### Create a new customer.
+
+```http
+  POST /customers
+```
+#### Update a customer.
+
+```http
+  PUT /customers/:${id}
+```
+#### Delete a customer.
+
+```http
+  Delete /customers/:${id}
+```
+## Items
+
+#### Get a list of all Items
+
+```http
+  GET /items
+```
+#### Get details of a specific item by ID.
+
+```http
+  GET /items/:${id}
+```
+#### Create a new item.
+
+```http
+  POST /items
+```
+#### Update a item.
+
+```http
+  PUT /items/:${id}
+```
+#### Delete a item.
+
+```http
+  Delete /items/:${id}
+```
+## Delivery Vehicles
+
+#### Get a list of all Vehicles
+
+```http
+  GET /Vehicles
+```
+#### Get details of a specific Vehicle by ID.
+
+```http
+  GET /Vehicles/:${id}
+```
+#### Create a new Vehicle.
+
+```http
+  POST /Vehicles
+```
+#### Update a Vehicle.
+
+```http
+  PUT /Vehicles/:${id}
+```
+#### Delete a Vehicle.
+
+```http
+  Delete /Vehicles/:${id}
+```
+## Orders
+
+### Create a new order and assign a delivery vehicle.
+
+```http
+  POST /orders
+```
+### Mark an order as delivered.
+
+```http
+  PUT /orders/:id/deliver
+```
+
+## Error Handling
 Errors are returned with appropriate status codes and error messages in JSON format.
 
-Logging
+## Logging
 The application uses logging to provide information and error messages. Check the log files for more details.
