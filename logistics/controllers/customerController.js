@@ -3,8 +3,10 @@ const logger = require('../utils/logger');
 
 const customerController = {
   getAllCustomers: async (req, res) => {
+    console.log(req.body);
     try {
       const customers = await Customer.find();
+      logger.info("Fetched all customers")
       res.json(customers);
     } catch (error) {
       logger.error('Error fetching customers:', error);
@@ -19,6 +21,7 @@ const customerController = {
       if (!customer) {
         return res.status(404).json({ error: 'Customer not found' });
       }
+      logger.info(`Fetched customer with id ${customerId}`)
       res.json(customer);
     } catch (error) {
       logger.error('Error fetching customer by ID:', error);
@@ -26,7 +29,7 @@ const customerController = {
     }
   },
 
-  createCustomer: async (req, res) => {
+  createCustomer: async (req, res) => { 
     try {
       const { name, city } = req.body;
       const newCustomer = new Customer({ name, city });
